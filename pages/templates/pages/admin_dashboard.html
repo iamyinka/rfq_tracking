@@ -1,5 +1,27 @@
 <h1>Admin Dashboard</h1>
 
+<ul>
+    
+    {% if donors %}
+        
+        {% for donor in donors %}
+            <li>
+                <a href="{{ donor.donors_url }}" target="_blank">{{ donor.name }} </a> &mdash; <span>DF Funded: 
+                    {% if donor.df_funded %}
+                        "Yes"
+                    {% else %}
+                        "No"
+                    {% endif %}
+                         </span>
+            </li>
+        {% endfor %}
+            
+    {% else %}
+        <p>There are no donors in the database</p>
+    {% endif %}
+        
+</ul>
+
 <p>
-    <a href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'add-donor' %}">Add Donor</a>
 </p>

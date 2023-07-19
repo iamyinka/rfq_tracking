@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import AddDonorForm
 
 def add_donor(request):
+    if not request.user.is_staff:
+        return redirect('home')
     form = AddDonorForm()
 
     if request.method == "POST":

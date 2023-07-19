@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4"
+dj-database-url = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
+django-countries = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

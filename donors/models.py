@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from django_countries.fields import CountryField
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Donor(models.Model):
     FREQUENT_FIVE = ('FIVE', "5 Years")
@@ -49,6 +50,8 @@ class Donor(models.Model):
     donors_url = models.URLField()
     contact = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.name} - {self.country.name}"

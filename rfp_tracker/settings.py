@@ -43,11 +43,13 @@ INSTALLED_APPS = [
 
     # 3rd-party Apps
     'django_countries',
+    'widget_tweaks',
 
     # Local Apps
     'donors',
     'pages',
     'reps.apps.RepsConfig',
+    'rfps.apps.RfpsConfig',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 LOGIN_URL = "login/"
 

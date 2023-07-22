@@ -9,6 +9,7 @@ dj-database-url = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
 django-countries = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 

@@ -1,0 +1,17 @@
+{% load widget_tweaks %}
+
+<h1>Create RFP</h1>
+<h2>{{ donor }}</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="donor" value="{{ donor.id }}">
+    {% comment %} {% render_field form.donor type="hidden" %} {% endcomment %}
+    {% render_field form.call_type %} <br><br>
+    {% render_field form.grant_value %} <br><br>
+    {% render_field form.advert_date type="date" %} <br><br>
+    {% render_field form.closing_date type="date" %} <br><br>
+    {% render_field form.eligible_countries %} <br><br>
+    {% render_field form.concept_note %} <br><br>
+    {% render_field form.submission_date type="date" %} <br><br>
+    <input type="submit" value="Create RFP">
+</form>

@@ -6,13 +6,18 @@
         
         {% for donor in donors %}
             <li>
-                <a href="{{ donor.donors_url }}" target="_blank">{{ donor.name }} </a> &mdash; <span>DF Funded: 
+                <a href="{{ donor.donors_url }}" target="_blank">{{ donor.name }} (
+                {% if donor.rfps %}
+                    {{ donor.rfps.count }}
+                {% endif %}
+                    ) </a> &mdash; <span>DF Funded: 
                     {% if donor.df_funded %}
                         "Yes"
                     {% else %}
                         "No"
                     {% endif %}
-                         </span>
+                         </span> 
+                         | <a href="{% url 'create-rfp' donor.id %}">Create RFP</a>
             </li>
         {% endfor %}
             
@@ -23,5 +28,5 @@
 </ul>
 
 <p>
-    <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'add-donor' %}">Add Donor</a>
+    <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'add-donor' %}">Add Donor</a> 
 </p>

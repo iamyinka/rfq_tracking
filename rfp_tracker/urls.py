@@ -22,5 +22,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(redirect_authenticated_user=True, template_name="pages/login.html"), name='login'),
     path('logout/', LogoutView.as_view(next_page="/"), name="logout"),
     path('donors/', include('donors.urls')),
+    path('request-for-proposal/', include('rfps.urls')),
     path('', include('pages.urls')),
 ]

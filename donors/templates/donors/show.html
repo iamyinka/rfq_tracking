@@ -1,0 +1,20 @@
+<h1>Show Page</h1>
+
+<h4>{{ donor.name }}</h4>
+
+<p>Active RFPs for {{ donor.name }}</p>
+
+<ul>
+    
+    {% for rfp in rfps %}
+        <li>
+            {{ rfp }} 
+            
+            {% if not request.user.username in rfp.applicants %}
+                <a href="{% url 'apply' rfp.id %}">{{ rfp }}</a>
+            {% endif %}
+                
+        </li>
+    {% endfor %}
+        
+</ul>

@@ -23,5 +23,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page="/"), name="logout"),
     path('donors/', include('donors.urls')),
     path('request-for-proposal/', include('rfps.urls')),
+    path('application/', include('applications.urls')),
     path('', include('pages.urls')),
 ]

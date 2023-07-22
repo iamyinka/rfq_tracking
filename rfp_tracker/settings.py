@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'pages',
     'reps.apps.RepsConfig',
     'rfps.apps.RfpsConfig',
+    'applications.apps.ApplicationsConfig',
 ]
 
 MIDDLEWARE = [

@@ -3,3 +3,34 @@
 <p>
     <a href="{% url 'logout' %}">Log Out</a>
 </p>
+
+
+<ul>
+    
+    {% if donors %}
+        
+        {% for donor in donors %}
+            <li>
+                <a href="{% url 'donor-detail' donor.id %}">{{ donor.name }} (
+                {% if donor.rfps %}
+                    {{ donor.rfps.count }}
+                {% endif %}
+                    ) </a> &mdash; <span>DF Funded: 
+                    {% if donor.df_funded %}
+                        "Yes"
+                    {% else %}
+                        "No"
+                    {% endif %}
+                         </span> 
+            </li>
+        {% endfor %}
+            
+    {% else %}
+        <p>There are no donors in the database</p>
+    {% endif %}
+        
+</ul>
+
+<p>
+    <a href="{% url 'logout' %}">Log Out</a> | <a href="{% url 'add-donor' %}">Add Donor</a> 
+</p>

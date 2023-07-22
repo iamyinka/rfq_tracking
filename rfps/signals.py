@@ -1,6 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from applications.models import Application
 from .models import Rfp
 from django.core.mail import send_mail
 
@@ -17,3 +18,14 @@ def rfp_create_send_email(sender, instance, created, **kwargs):
             [recievers],
             fail_silently=False,
         )
+
+
+@receiver(post_save, sender=Application)
+def add_applicants_to_rfps(sender, instance, created, **kwargs):
+    if created:
+        reps = set()
+        reps.add(instance.rep.user.username)
+        rfp = Rfp.objects.get(id=instance.rfp.id)
+        for rep in reps:
+            rfp.applicants += f"{rep},"
+            rfp.save()

@@ -6,7 +6,7 @@
         
         {% for donor in donors %}
             <li>
-                <a href="{{ donor.donors_url }}" target="_blank">{{ donor.name }} (
+                <a href="{% url 'donor-detail' donor.id %}">{{ donor.name }} (
                 {% if donor.rfps %}
                     {{ donor.rfps.count }}
                 {% endif %}

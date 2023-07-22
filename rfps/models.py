@@ -14,6 +14,7 @@ class Rfp(models.Model):
     eligible_countries = CountryField(multiple=True)
     concept_note = models.FileField(blank=True, null=True)
     submission_date = models.DateField()
+    applicants = models.TextField(default='', blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

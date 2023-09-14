@@ -1,2 +1,9 @@
 db.sqlite3
+Pipfile
+Pipfile.lock
 .env
+static/admin/
+static/debug_toolbar/
+**/migrations/*
+!**migrations/__init__.py
+__pycache__

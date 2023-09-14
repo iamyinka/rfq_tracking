@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'reps.apps.RepsConfig',
     'rfps.apps.RfpsConfig',
     'applications.apps.ApplicationsConfig',
+    'proposals.apps.ProposalsConfig',
 ]
 
 MIDDLEWARE = [
